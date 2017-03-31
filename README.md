@@ -21,6 +21,5 @@ db {
   default.user=root
   default.password="root"
 
-  # Provided for JPA access
   default.jndiName=DefaultDS
 }

@@ -8,7 +8,7 @@ POST    /book                     controllers.BookController.addBook()
 GET     /book                     controllers.BookController.getBook()
 PUT     /book                     controllers.BookController.updateBook()
 DELETE  /book                     controllers.BookController.deleteBook()
-PUT     /book                     controllers.BookController.searchBooks()
+GET     /book                     controllers.BookController.searchBooks()
 GET     /books                    controllers.BookController.getBooks()
 
 # Map static resources from the /public folder to the /assets URL path
