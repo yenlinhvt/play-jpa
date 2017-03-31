@@ -16,7 +16,16 @@ $(function() {
       method: 'PUT',
       data: $('#bookForm').serialize()
     }).done(function() {
+      $("#isbnNo").val("");
+      $("#title").val("");
+      $("#author").val("");
+      $("#id").val("");
 
+      $("#submitBtn").show();
+      $("#editBtn").hide();
+
+      $("#key").val("");
+      $("#searchBtn").click();
     });
   });
 
@@ -29,7 +38,7 @@ $(function() {
 
   $(document).on('click', '.delete-book', function() {
       var id = $(this).attr("data-id"),
-          book = $(this).parents('book');
+          book = $(this).parent().parent();
       $.ajax({
         url: '/book?id=' + id,
         method: 'DELETE',

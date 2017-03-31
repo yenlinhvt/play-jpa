@@ -1,6 +1,8 @@
 # SQL create database
 
-CREATE DATABASE book_store
+CREATE DATABASE book_store;
+
+USE book_store;
 
 CREATE TABLE `book` (
   `book_id` int(11) NOT NULL AUTO_INCREMENT,

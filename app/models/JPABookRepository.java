@@ -81,7 +81,8 @@ public class JPABookRepository implements BookRepository {
     }
 
     private Stream<Book> search(EntityManager em, String key) {
-        List<Book> books = em.createQuery("select b from Book b where b.author like :key", Book.class).setParameter("key", "%" + key +"%").getResultList();
+        List<Book> books = em.createQuery("select b from Book b where b.author like :key", Book.class)
+                             .setParameter("key", "%" + key +"%").getResultList();
         return books.stream();
     }
 

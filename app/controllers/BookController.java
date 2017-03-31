@@ -62,6 +62,7 @@ public class BookController extends Controller {
         try {
             id = Integer.parseInt(ids[0]);
         } catch (Exception ex) {
+            //TODO: return error
         }
         return bookRepository.get(id).thenApplyAsync(book -> {
             return ok(toJson(book));
@@ -70,18 +71,18 @@ public class BookController extends Controller {
 
     public CompletionStage<Result> updateBook() {
         Book book = formFactory.form(Book.class).bindFromRequest().get();
-        return bookRepository.add(book).thenApplyAsync(p -> {
+        return bookRepository.update(book).thenApplyAsync(p -> {
             return redirect(routes.BookController.index());
         }, ec.current());
     }
 
     public CompletionStage<Result> deleteBook() {
-//        DynamicForm form = formFactory.form().bindFromRequest();
         String[] ids = Controller.request().queryString().get("id");
         Integer id = 0;
         try {
             id = Integer.parseInt(ids[0]);
         } catch (Exception ex) {
+            //TODO: return error
         }
         return bookRepository.delete(id).thenApplyAsync(p -> {
             return redirect(routes.BookController.index());
